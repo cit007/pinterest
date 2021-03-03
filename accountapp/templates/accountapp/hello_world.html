@@ -7,10 +7,12 @@
         <input type="submit" class="btn btn-primary" value="POST">
     </form>
 
-     {% if hello_world_output %}
-    <p>
-        this is {{ hello_world_output.text }}
-    </p>
+     {% if hello_world_list %}
+        {% for hello_world in hello_world_list %}
+        <p>
+            this is {{ hello_world.text }}
+        </p>
+        {% endfor %}
     {% endif %}
 </main>
 {% endblock %}

@@ -9,11 +9,17 @@ def hello_world(request):
     if request.method == "POST":
         input_msg = request.POST.get("hello_world_input")
 
-        # test model
+        # save to database
         new_hello_world = HelloWorld()
         new_hello_world.text = input_msg
         new_hello_world.save()
 
-        return render(request, 'accountapp/hello_world.html', context={'hello_world_output': new_hello_world})
+        # get data all from HelloWorld
+        hello_world_list = HelloWorld.objects.all()
+
+        # for item in hello_world_list:
+        #     print(f"item: {item.text}")
+        return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
     else:
-        return render(request, 'accountapp/hello_world.html', context={'text': 'GET METHOD'})
+        hello_world_list = HelloWorld.objects.all()
+        return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
