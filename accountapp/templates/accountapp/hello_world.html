@@ -6,8 +6,11 @@
         <input type="text" name="hello_world_input">
         <input type="submit" class="btn btn-primary" value="POST">
     </form>
+
+     {% if hello_world_output %}
     <p>
-        this is {{ text }}
+        this is {{ hello_world_output.text }}
     </p>
+    {% endif %}
 </main>
 {% endblock %}
