@@ -5,3 +5,10 @@
 body {
   font-family: "Open Sans", sans-serif;
 }
+
+.main {
+  height: 20rem;
+  background-color: gray;
+  border-radius: 1rem;
+  margin: 1rem;
+}

@@ -1,5 +1,12 @@
-{% extends 'base.html' %}
-
-{% block content %}
-    <main style="height:20rem; background-color: gray; border-radius: 1rem; margin: 1rem">testing</main>
+{% extends 'base.html' %} {% block content %}
+<main class="main">
+    <h2>main content</h2>
+    <form action="/account/hello_world/" method="POST">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="POST">
+    </form>
+    <p>
+        this is {{ text }}
+    </p>
+</main>
 {% endblock %}
