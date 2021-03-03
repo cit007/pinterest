@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "/Users/intackcho/anaconda3/envs/pinterestEnv/bin/python"
+    "python.pythonPath": "/Users/intackcho/anaconda3/envs/pinterestEnv/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
