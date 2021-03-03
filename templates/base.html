@@ -5,7 +5,11 @@
 
 <body>
     {% include 'header.html' %}
-    <main style="height:20rem; background-color: gray; border-radius: 1rem; margin: 1rem">main</main>
+    
+    {% block content %}
+    
+    {% endblock %}
+
     {% include 'footer.html' %}
 </body>
 </html>
