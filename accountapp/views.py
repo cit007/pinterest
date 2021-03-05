@@ -13,6 +13,8 @@ from accountapp.forms import AccountUpdateForm
 
 from accountapp.decorators import account_custom_ownership_required
 
+has_ownership = [login_required, account_custom_ownership_required]
+
 
 @login_required
 def hello_world(request):
@@ -41,18 +43,15 @@ class AccountCreateView(CreateView):
     template_name = 'accountapp/create.html'
 
 
-@method_decorator(login_required, 'get')
-@method_decorator(account_custom_ownership_required, 'get')
+@method_decorator(has_ownership, 'get')
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
 
 
-@method_decorator(login_required, 'get')
-@method_decorator(login_required, 'post')
-@method_decorator(account_custom_ownership_required, 'get')
-@method_decorator(account_custom_ownership_required, 'post')
+@method_decorator(has_ownership, 'get')
+@method_decorator(has_ownership, 'post')
 class AccountUpdateView(UpdateView):
     model = User
     context_object_name = 'target_user'
@@ -61,10 +60,8 @@ class AccountUpdateView(UpdateView):
     template_name = 'accountapp/update.html'
 
 
-@method_decorator(login_required, 'get')
-@method_decorator(login_required, 'post')
-@method_decorator(account_custom_ownership_required, 'get')
-@method_decorator(account_custom_ownership_required, 'post')
+@method_decorator(has_ownership, 'get')
+@method_decorator(has_ownership, 'post')
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
