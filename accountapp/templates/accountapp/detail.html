@@ -7,6 +7,9 @@
             <h4>{{ target_user.date_joined }}</h4>
             {% if target_user.profile %}
             <h4>{{ target_user.profile.nickname }}</h4>
+            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                <p>Edit Profile</p>
+            </a>
             {% else %}
             <a href="{% url 'profileapp:create' %}">
                 <p>Create Profile</p>
