@@ -1,0 +1,15 @@
+from django.contrib.auth.models import User
+from django.http import HttpResponseForbidden
+
+from profileapp.models import Profile
+
+
+def profile_custom_ownership_required(func):
+    def decorated(request, *args, **kwargs):
+        profile = Profile.objects.get(pk=kwargs['pk'])
+        if not profile.user == request.user:
+            return HttpResponseForbidden()
+        else:
+            return func(request, *args, **kwargs)
+
+    return decorated

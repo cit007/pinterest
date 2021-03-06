@@ -2,10 +2,13 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, UpdateView
 
 from profileapp.models import Profile
 from profileapp.forms import ProfileCreationForm
+
+from profileapp.decorators import profile_custom_ownership_required
 
 
 class ProfileCreateView(CreateView):
@@ -22,7 +25,7 @@ class ProfileCreateView(CreateView):
 
         return super().form_valid(form)
 
-
+@method_decorator(profile_custom_ownership_required, 'get')
 class ProfileUpdateView(UpdateView):
     model = Profile
     context_object_name = 'target_profile'
