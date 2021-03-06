@@ -25,7 +25,9 @@ class ProfileCreateView(CreateView):
 
         return super().form_valid(form)
 
+
 @method_decorator(profile_custom_ownership_required, 'get')
+@method_decorator(profile_custom_ownership_required, 'post')
 class ProfileUpdateView(UpdateView):
     model = Profile
     context_object_name = 'target_profile'
