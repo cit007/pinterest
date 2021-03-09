@@ -74,3 +74,5 @@ venv/
 .idea/
 __pycache__/
 .env
+
+mediafiles/
