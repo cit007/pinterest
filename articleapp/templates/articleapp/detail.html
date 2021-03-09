@@ -8,8 +8,8 @@
         <p>{{ target_article.content }}</p>
 
         {% if target_article.writer == user %}
-        <a href="{% url 'articleapp:update' pk=target_article.pk %}">Edit Article</a>
-        <a href="{% url 'articleapp:delete' pk=target_article.pk %}">Delete Article</a>
+        <a href="{% url 'articleapp:update' pk=target_article.pk %}"><p>Edit Article</p></a>
+        <a href="{% url 'articleapp:delete' pk=target_article.pk %}"><p>Delete Article</p></a>
         {% endif %}
     </div>
 {% endblock %}
