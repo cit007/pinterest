@@ -3,85 +3,20 @@
 
 {% block content %}
  <section>
+    {% if article_list %}
     <div class="wf-container">
+        {% for article in article_list %}
+        <a href="{% url 'articleapp:detail' pk=article.pk %}"></a>
         <div class="wf-box">
-            <img src="https://picsum.photos/200/300">
-            <div class="content">
-                <h3>Title</h3>
-                <p>Content Here</p>    
-            </div>
+            {% include 'snippets/card.html' with article=article %}
         </div>
-        <div class="wf-box">
-            <img src="https://picsum.photos/200/340">
-            <div class="content">
-                <h3>Title</h3>
-                <p>Content aa asdfasdfjal</p>    
-            </div>
-        </div>
-        <div class="wf-box">
-            <img src="https://picsum.photos/200/260">
-            <div class="content">
-                <h3>Heading</h3>
-                <p>Content aa asdfasdfjal</p>    
-            </div>
-        </div>
-        <div class="wf-box">
-            <img src="https://picsum.photos/200/400">
-            <div class="content">
-                <h3>Heading</h3>
-                <p>Content aa asdfasdfjal</p>    
-            </div>
-        </div>
-        <div class="wf-box">
-            <img src="https://picsum.photos/200/510">
-            <div class="content">
-                <h3>Heading</h3>
-                <p>Content aa asdfasdfjal</p>    
-            </div>
-        </div>
-        <div class="wf-box">
-            <img src="https://picsum.photos/200/300">
-            <div class="content">
-                <h3>Heading</h3>
-                <p>Content aa asdfasdfjal</p>    
-            </div>
-        </div>
-        <div class="wf-box">
-            <img src="https://picsum.photos/200/200">
-            <div class="content">
-                <h3>Heading</h3>
-                <p>Content aa asdfasdfjal</p>    
-            </div>
-        </div>
-        <div class="wf-box">
-            <img src="https://picsum.photos/200/270">
-            <div class="content">
-                <h3>Heading</h3>
-                <p>Content aa asdf ljaljaljal</p>    
-            </div>
-        </div>
-        <div class="wf-box">
-            <img src="https://picsum.photos/200/330">
-            <div class="content">
-                <h3>Heading</h3>
-                <p>Content aa asdfasdfjal</p>    
-            </div>
-        </div>
-        <div class="wf-box">
-            <img src="https://picsum.photos/200/410">
-            <div class="content">
-                <h3>Heading</h3>
-                <p>Content aa asdfasdfjal</p>    
-            </div>
-        </div>
-        <div class="wf-box">
-            <img src="https://picsum.photos/200/450">
-            <div class="content">
-                <h3>Heading</h3>
-                <p>Content aa asdfasdfjal</p>    
-            </div>
-        </div>
+        {% endfor %}
     </div>
+    {% else %}
+    <div style="text-align:center">
+        <h2>No Article</h2>
+    </div>
+    {% endif %}
 
      <div style="text-align:center">
          <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
