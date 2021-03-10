@@ -1,20 +1,20 @@
-<header style="display:flex; flex-direction:column; justify-content: center; align-items:center">
-    <div>
-        <h3>Pragmatic</h3>
+<header class="common-header">
+    <div class="header-title">
+        <h1>Pragmatic</h1>
     </div>
     <div>
-        <ul style="display:flex; justify-content: center; align-items:center; list-style: none;">
-            <li style="padding:1rem">
+        <ul class="header-menu">
+            <li>
                 <a href="{% url 'articleapp:list' %}">Articles</a>
             </li>
-            <li style="padding:1rem">nav2</li>
-            <li style="padding:1rem">nav3</li>
+            <li>nav2</li>
+            <li>nav3</li>
             {% if not user.is_authenticated %}
-            <li style="padding:1rem"><a href="{% url 'accountapp:login' %}?next={{ request.path }}">Login</a></li>
-            <li style="padding:1rem"><a href="{% url 'accountapp:create' %}">SignUp</a></li>
+            <li><a href="{% url 'accountapp:login' %}?next={{ request.path }}">Login</a></li>
+            <li><a href="{% url 'accountapp:create' %}">SignUp</a></li>
             {% else %}
-            <li style="padding:1rem"><a href="{% url 'accountapp:detail' pk=user.pk %}">Detail</a></li>
-            <li style="padding:1rem"><a href="{% url 'accountapp:logout' %}?next={{ request.path }}">Logout</a></li>
+            <li><a href="{% url 'accountapp:detail' pk=user.pk %}">Detail</a></li>
+            <li><a href="{% url 'accountapp:logout' %}?next={{ request.path }}">Logout</a></li>
             {% endif %}
         </ul>
     </div>

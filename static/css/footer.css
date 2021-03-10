@@ -1,0 +1,22 @@
+.common-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.footer-title {
+  margin: 1rem auto;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-menu li {
+  font-size: 1rem;
+  padding: 8px;
+}
