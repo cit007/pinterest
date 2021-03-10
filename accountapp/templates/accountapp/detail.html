@@ -16,9 +16,7 @@
                 
             {% else %}
                 {% if target_user == user %}
-                <a href="{% url 'profileapp:create' %}">
-                    <p>Create Profile</p>
-                </a>
+                <a href="{% url 'profileapp:create' %}">Create Profile <i class="fas fa-edit"></i></a>
                 {% endif %}
             {% endif %}
         </div>

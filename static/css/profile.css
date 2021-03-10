@@ -1,0 +1,42 @@
+.profile-create,
+.profile-update {
+  max-width: 500px;
+  margin: 4rem auto;
+  font-size: 1.2rem;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-create .title,
+.profile-update .title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.profile-create form label,
+.profile-update form label {
+  margin-top: 1rem;
+  margin-bottom: 8px;
+}
+
+.profile-create .submit-btn,
+.profile-update .submit-btn {
+  border: none;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: white;
+  background-color: var(--line-color);
+  width: 10rem;
+  padding: 8px;
+  margin: 2rem calc(50% - 5rem) 2rem calc(50% - 5rem);
+}
+
+.profile-create .submit-btn:hover,
+.profile-update .submit-btn:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}

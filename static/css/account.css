@@ -57,7 +57,10 @@
   margin: 2rem calc(50% - 5rem) 2rem calc(50% - 5rem);
 }
 
-.account-create .submit-btn:hover {
+.account-create .submit-btn:hover,
+.account-update .submit-btn:hover,
+.account-delete .delete-btn:hover,
+.account-login .submit-btn:hover {
   transform: scale(1.1);
   opacity: 1;
 }
