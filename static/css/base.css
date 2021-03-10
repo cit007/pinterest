@@ -12,3 +12,17 @@ body {
   border-radius: 1rem;
   margin: 1rem;
 }
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+}
+
+.detail img {
+  width: 50%;
+  border-radius: 20px;
+}
