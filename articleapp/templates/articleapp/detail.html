@@ -13,6 +13,7 @@
         <a href="{% url 'articleapp:delete' pk=target_article.pk %}" class="btn btn-danger rounded-pill col-3"><p>Delete Article</p></a>
         {% endif %}
 
+        {% include 'commentapp/create.html' with article=target_article %}
         <hr>
     </div>
 {% endblock %}
