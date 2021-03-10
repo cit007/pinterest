@@ -26,3 +26,16 @@ body {
   width: 50%;
   border-radius: 20px;
 }
+
+.comment_detail {
+  width: 40%;
+  border: 1px solid gray;
+  border-radius: 16px;
+  margin-top: 5px;
+  padding: 8px;
+}
+
+.comment_title {
+  display: flex;
+  justify-content: space-between;
+}
