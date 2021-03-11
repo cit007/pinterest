@@ -1,24 +1,11 @@
-/* reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #333;
-}
-
-a {
+/* a {
   text-decoration: none;
   cursor: pointer;
   color: #419aff;
 }
 a:hover {
   color: #41ccff;
-}
+} */
 
 /* customize button */
 .btn {
@@ -68,14 +55,16 @@ a:hover {
 }
 .wf-box {
   margin: 10px;
+  border-radius: 16px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .wf-box img {
   display: block;
   width: 100%;
 }
 .wf-box .content {
-  border: 1px solid #ccc;
-  border-top-width: 0;
+  /* border: 1px solid #ccc; */
+  /* border-top-width: 0; */
   padding: 5px 8px;
 }
 .wf-column {
