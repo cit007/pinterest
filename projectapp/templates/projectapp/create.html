@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <div class="project-create">
+        <div class="title">
+            <h4>Project Create</h4>
+        </div>
+        <form action="{% url 'projectapp:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" class="submit-btn">
+        </form>
+    </div>
+
+{% endblock %}
