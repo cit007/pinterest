@@ -31,36 +31,13 @@ h5 {
   font-size: 1.2rem;
 }
 
+a {
+  padding: 8px;
+}
+
 .main {
   height: 20rem;
   background-color: gray;
   border-radius: 1rem;
   margin: 1rem;
-}
-
-.detail {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  width: 100vw;
-}
-
-.detail img {
-  width: 50%;
-  border-radius: 20px;
-}
-
-.comment_detail {
-  width: 40%;
-  border: 1px solid gray;
-  border-radius: 16px;
-  margin-top: 5px;
-  padding: 8px;
-}
-
-.comment_title {
-  display: flex;
-  justify-content: space-between;
 }

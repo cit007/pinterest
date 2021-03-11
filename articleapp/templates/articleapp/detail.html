@@ -2,17 +2,19 @@
 
 {% block content %}
 
-    <div class="detail">
+    <div class="article-detail">
         <h1>{{ target_article.title }}</h1>
         <h3>{{ target_article.writer.profile.nickname }}</h3>
         <img src="{{ target_article.image.url }}" alt="">
         <p>{{ target_article.content }}</p>
 
         {% if target_article.writer == user %}
-        <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="btn btn-dark rounded-pill col-3 mb-2"><p>Edit Article</p></a>
-        <a href="{% url 'articleapp:delete' pk=target_article.pk %}" class="btn btn-danger rounded-pill col-3"><p>Delete Article</p></a>
+        <a href="{% url 'articleapp:update' pk=target_article.pk %}"><p>Edit Article <i class="fas fa-edit"></i></p></a>
+        <a href="{% url 'articleapp:delete' pk=target_article.pk %}"><p>Delete Article <i class="fas fa-trash-alt"></i></p></a>
         {% endif %}
 
+        <hr>
+        
         {% for comment in target_article.comment.all %}
             {% include 'commentapp/detail.html' with comment=comment %}
         {% endfor %}

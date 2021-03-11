@@ -1,0 +1,63 @@
+.article-create,
+.article-update,
+.article-delete,
+.article-detail {
+  width: 80%;
+  /* max-width: 500px; */
+  margin: 4rem auto;
+  font-size: 1.2rem;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-detail img {
+  height: 80%;
+  width: 80%;
+  border-radius: 1rem;
+  margin: 1rem auto;
+}
+
+.article-detail .article-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-create .title,
+.article-update .title,
+.article-delete .title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.article-create form label,
+.article-update form label,
+.article-delete form label {
+  margin-top: 1rem;
+  margin-bottom: 8px;
+}
+
+.article-create .submit-btn,
+.article-update .submit-btn,
+.article-delete .delete-btn {
+  border: none;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: white;
+  background-color: var(--line-color);
+  width: 10rem;
+  padding: 8px;
+  margin: 2rem calc(50% - 5rem) 2rem calc(50% - 5rem);
+}
+
+.article-create .submit-btn:hover,
+.article-update .submit-btn:hover,
+.article-delete .delete-btn:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}

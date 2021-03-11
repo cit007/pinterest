@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div class="create" style="text-align:center; max-width:500px; margin:4rem auto;">
+    <div class="comment-create">
         <div class="mb-4">
             <h4>Comment Create</h4>
         </div>
@@ -14,7 +14,7 @@
             <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
             <input type="hidden" name="article_pk" value="{{ article.pk }}">
             {% else %}
-            <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="btn btn-dark rounded-pill col-6 mt-3">
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="submit-btn">
                 Login
             </a>
             {% endif %}
