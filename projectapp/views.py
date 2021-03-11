@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from projectapp.models import Project
 
@@ -24,3 +24,8 @@ class ProjectCreateView(CreateView):
 
     def get_success_url(self):
         return reverse('projectapp:detail', kwargs={'pk': self.object.pk})
+
+class ProjectDetailView(DetailView):
+    model = Project
+    context_object_name = 'target_project'
+    template_name = 'projectapp/detail.html'
