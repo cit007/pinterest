@@ -14,6 +14,7 @@ from projectapp.decorators import project_custom_ownership_required
 
 has_ownership = [login_required, project_custom_ownership_required]
 
+
 @method_decorator(login_required, 'get')
 @method_decorator(login_required, 'post')
 class ProjectCreateView(CreateView):
@@ -32,10 +33,12 @@ class ProjectCreateView(CreateView):
     def get_success_url(self):
         return reverse('projectapp:detail', kwargs={'pk': self.object.pk})
 
+
 class ProjectDetailView(DetailView):
     model = Project
     context_object_name = 'target_project'
     template_name = 'projectapp/detail.html'
+
 
 class ProjectListView(ListView):
     model = Project

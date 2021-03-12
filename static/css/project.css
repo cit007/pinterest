@@ -16,6 +16,7 @@
 .project-detail img {
   height: 80%;
   width: 80%;
+  object-fit: cover;
   border-radius: 1rem;
   margin: 1rem auto;
 }
@@ -60,4 +61,10 @@
 .project-delete .delete-btn:hover {
   transform: scale(1.1);
   opacity: 1;
+}
+
+.project-list__img {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
 }

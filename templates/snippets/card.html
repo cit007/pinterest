@@ -1,15 +1,15 @@
 {%if article_list %}
 <img src={{ article.image.url }} alt="">
 <div class="content">
-    <h3>{{ article.title }}</h3>
-    <p>{{ article.content }}</p>
+    <h3>{{ article.title | truncatechars:16 }}</h3>
+    <p>{{ article.content | truncatechars:30 }}</p>
 </div>
 {% endif %}
 
 {%if project_list %}
-<img src={{ project.image.url }} alt="">
+<img class="project-list__img" src={{ project.image.url }} alt="">
 <div class="content">
-    <h3>{{ project.title }}</h3>
-    <p>{{ project.desc }}</p>
+    <h3>{{ project.title | truncatechars:10 }}</h3>
+    <p>{{ project.desc | truncatechars:13 }}</p>
 </div>
 {% endif %}

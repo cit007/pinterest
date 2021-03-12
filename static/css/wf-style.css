@@ -60,6 +60,7 @@ a:hover {
 }
 .wf-box img {
   display: block;
+  /* object-fit: cover; */
   width: 100%;
 }
 .wf-box .content {
