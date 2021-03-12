@@ -1,5 +1,15 @@
+{%if article_list %}
 <img src={{ article.image.url }} alt="">
 <div class="content">
     <h3>{{ article.title }}</h3>
     <p>{{ article.content }}</p>
 </div>
+{% endif %}
+
+{%if project_list %}
+<img src={{ project.image.url }} alt="">
+<div class="content">
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.desc }}</p>
+</div>
+{% endif %}
