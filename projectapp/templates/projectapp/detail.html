@@ -8,10 +8,9 @@
         <img src="{{ target_project.image.url }}" alt="">
         <p>{{ target_project.content }}</p>
 
-        {% if target_project.writer == user %}
-        
-        
-        {% endif %}
+        <!-- {% if target_project.writer == user %} -->
+        {% include 'snippets/related_list.html' with article_list=object_list %}
+        <!-- {% endif %} -->
 
         <hr>
     </div>

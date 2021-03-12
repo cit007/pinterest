@@ -1,0 +1,31 @@
+{% load static %}
+
+{% block content %}
+<section>
+    {% if article_list %}
+    <div class="wf-container">
+        {% for article in article_list %}
+            <div class="wf-box">
+                <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                {% include 'snippets/card.html' with article=article %}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div style="text-align:center">
+        <h2>No Article</h2>
+    </div>
+    {% endif %}
+
+    {% include 'snippets/pagination.html' with page_obj=page_obj %}
+
+     <div style="text-align:center">
+         <a href="{% url 'articleapp:create' %}" class="submit-btn">
+             Create Article
+         </a>
+     </div>
+</section>
+<!--<script src="{% static 'js/responsive_waterfall.js' %}"></script>-->
+  
+{% endblock %}
