@@ -1,14 +1,21 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse
+from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, ListView
 
 from projectapp.models import Project
 
 from projectapp.forms import ProjectCreationForm
 
+from projectapp.decorators import project_custom_ownership_required
 
+has_ownership = [login_required, project_custom_ownership_required]
+
+@method_decorator(login_required, 'get')
+@method_decorator(login_required, 'post')
 class ProjectCreateView(CreateView):
     model = Project
     form_class = ProjectCreationForm
