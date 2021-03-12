@@ -6,11 +6,9 @@
         <h1>{{ target_project.title }}</h1>
         <h3>{{ target_project.writer.profile.nickname }}</h3>
         <img src="{{ target_project.image.url }}" alt="">
-        <p>{{ target_project.content }}</p>
+        <p>{{ target_project.desc }}</p>
 
-        <!-- {% if target_project.writer == user %} -->
         {% include 'snippets/related_list.html' with article_list=object_list %}
-        <!-- {% endif %} -->
 
         <hr>
     </div>
