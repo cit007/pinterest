@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<section>
+<section class="article-section">
     {% if article_list %}
     <div class="wf-container">
         {% for article in article_list %}
@@ -23,6 +23,5 @@
 
     <a href="{% url 'articleapp:create' %}" class="submit-btn">Create Article</a>
 </section>
-<!--<script src="{% static 'js/responsive_waterfall.js' %}"></script>-->
   
 {% endblock %}

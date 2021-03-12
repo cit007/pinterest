@@ -13,11 +13,19 @@
   align-items: center;
 }
 
-.project-detail img {
+.project-detail .project-list__img {
   height: 80%;
   width: 80%;
   object-fit: cover;
   border-radius: 1rem;
+  margin: 1rem auto;
+}
+
+.project-detail__image {
+  height: 350px;
+  width: 350px;
+  object-fit: cover;
+  border-radius: 50%;
   margin: 1rem auto;
 }
 
@@ -45,4 +53,12 @@
   width: 12rem;
   height: 12rem;
   object-fit: cover;
+}
+
+.project-section,
+.related-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
