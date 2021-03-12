@@ -21,11 +21,7 @@
 
     {% include 'snippets/pagination.html' with page_obj=page_obj %}
 
-     <div style="text-align:center">
-         <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
-             Create Article
-         </a>
-     </div>
+    <a href="{% url 'articleapp:create' %}" class="submit-btn">Create Article</a>
 </section>
 <!--<script src="{% static 'js/responsive_waterfall.js' %}"></script>-->
   

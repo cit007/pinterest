@@ -21,22 +21,3 @@
   margin-top: 1rem;
   margin-bottom: 8px;
 }
-
-.profile-create .submit-btn,
-.profile-update .submit-btn {
-  border: none;
-  border-radius: 10px;
-  font-size: 1.25rem;
-  margin-top: 1rem;
-  color: white;
-  background-color: var(--line-color);
-  width: 10rem;
-  padding: 8px;
-  margin: 2rem calc(50% - 5rem) 2rem calc(50% - 5rem);
-}
-
-.profile-create .submit-btn:hover,
-.profile-update .submit-btn:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}

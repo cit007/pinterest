@@ -43,24 +43,3 @@
   margin-top: 1rem;
   margin-bottom: 8px;
 }
-
-.comment-create .submit-btn,
-.comment-update .submit-btn,
-.comment-delete .delete-btn {
-  border: none;
-  border-radius: 10px;
-  font-size: 1.25rem;
-  margin-top: 1rem;
-  color: white;
-  background-color: var(--line-color);
-  width: 10rem;
-  padding: 8px;
-  margin: 2rem calc(50% - 5rem) 2rem calc(50% - 5rem);
-}
-
-.comment-create .submit-btn:hover,
-.comment-update .submit-btn:hover,
-.comment-delete .delete-btn:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}

@@ -6,19 +6,19 @@
         <div class="mb-4">
             <h4>Comment Create</h4>
         </div>
+
+        {% if user.is_authenticated %}
         <form action="{% url 'commentapp:create' %}" method="post">
             {% csrf_token %}
             {% bootstrap_form form %}
-
-            {% if user.is_authenticated %}
-            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+            <input type="submit" class="submit-btn">
             <input type="hidden" name="article_pk" value="{{ article.pk }}">
-            {% else %}
-            <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="submit-btn">
-                Login
-            </a>
-            {% endif %}
         </form>
+        {% else %}
+        <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="submit-btn">
+            Login
+        </a>
+        {% endif %}
     </div>
 
 {% endblock %}

@@ -41,26 +41,3 @@
   margin-top: 1rem;
   margin-bottom: 8px;
 }
-
-.account-create .submit-btn,
-.account-update .submit-btn,
-.account-delete .delete-btn,
-.account-login .submit-btn {
-  border: none;
-  border-radius: 10px;
-  font-size: 1.25rem;
-  margin-top: 1rem;
-  color: white;
-  background-color: var(--line-color);
-  width: 10rem;
-  padding: 8px;
-  margin: 2rem calc(50% - 5rem) 2rem calc(50% - 5rem);
-}
-
-.account-create .submit-btn:hover,
-.account-update .submit-btn:hover,
-.account-delete .delete-btn:hover,
-.account-login .submit-btn:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}

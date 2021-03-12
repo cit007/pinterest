@@ -41,28 +41,6 @@
   margin-top: 1rem;
   margin-bottom: 8px;
 }
-
-.project-create .submit-btn,
-.project-update .submit-btn,
-.project-delete .delete-btn {
-  border: none;
-  border-radius: 10px;
-  font-size: 1.25rem;
-  margin-top: 1rem;
-  color: white;
-  background-color: var(--line-color);
-  width: 10rem;
-  padding: 8px;
-  margin: 2rem calc(50% - 5rem) 2rem calc(50% - 5rem);
-}
-
-.project-create .submit-btn:hover,
-.project-update .submit-btn:hover,
-.project-delete .delete-btn:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
 .project-list__img {
   width: 12rem;
   height: 12rem;
