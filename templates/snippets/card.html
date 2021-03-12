@@ -1,5 +1,5 @@
 {%if article_list %}
-<img src={{ article.image.url }} alt="">
+<img src={{ article.image.url }} alt="" class="article__image">
 <div class="content">
     <h3>{{ article.title | truncatechars:16 }}</h3>
     <p>{{ article.content | truncatechars:30 }}</p>

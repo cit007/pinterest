@@ -7,7 +7,7 @@
             <h3>{{ target_user.date_joined }}</h3>
             {% if target_user.profile %}
                 <h1>{{ target_user.profile.nickname }}</h1>
-                <img src="{{ target_user.profile.image.url }}" alt="">
+                <img src="{{ target_user.profile.image.url }}" alt="" class="account-detail__image">
                 <h6>{{ target_user.profile.message}}</h6>
 
                 {% if target_user == user %}
@@ -24,6 +24,9 @@
         {% if target_user == user %}
         <a href="{% url 'accountapp:update' pk=user.pk %}">Edit Password <i class="fas fa-edit"></i></a>
         <a href="{% url 'accountapp:delete' pk=user.pk %}">SignOut <i class="fas fa-sign-out-alt"></i></a>
+
+        {% include 'snippets/related_list.html' with article_list=object_list %}
+
         {% endif %}
     </div>
 

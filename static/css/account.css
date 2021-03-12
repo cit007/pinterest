@@ -13,10 +13,20 @@
   align-items: center;
 }
 
-.account-detail img {
-  height: 12rem;
-  width: 12rem;
-  border-radius: 30%;
+.account-detail article__image {
+  height: 80%;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin: 1rem auto;
+}
+
+.account-detail__image {
+  height: 350px;
+  width: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 1rem auto;
 }
 
 .account-detail .account-profile {
