@@ -2,7 +2,7 @@
 <img src={{ article.image.url }} alt="" class="article__image">
 <div class="content">
     <h3>{{ article.title | truncatechars:16 }}</h3>
-    <p>{{ article.content | truncatechars:30 }}</p>
+    <p>{{ article.content | safe | truncatechars:30 }}</p>
 </div>
 {% endif %}
 
@@ -10,6 +10,6 @@
 <img class="project-list__img" src={{ project.image.url }} alt="">
 <div class="content">
     <h3>{{ project.title | truncatechars:10 }}</h3>
-    <p>{{ project.desc | truncatechars:13 }}</p>
+    <p>{{ project.desc | safe | truncatechars:13 }}</p>
 </div>
 {% endif %}

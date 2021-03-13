@@ -6,11 +6,11 @@
         <h1>{{ target_article.title }}</h1>
         <h3>{{ target_article.writer.profile.nickname }}</h3>
         <img src="{{ target_article.image.url }}" alt="">
-        <p>{{ target_article.content }}</p>
+        <p>{{ target_article.content | safe }}</p>
 
         {% if target_article.writer == user %}
-        <a href="{% url 'articleapp:update' pk=target_article.pk %}"><p>Edit Article <i class="fas fa-edit"></i></p></a>
-        <a href="{% url 'articleapp:delete' pk=target_article.pk %}"><p>Delete Article <i class="fas fa-trash-alt"></i></p></a>
+        <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="submit-btn"><p>Edit Article <i class="fas fa-edit"></i></p></a>
+        <a href="{% url 'articleapp:delete' pk=target_article.pk %}" class="alert-btn"><p>Delete Article <i class="fas fa-trash-alt"></i></p></a>
         {% endif %}
 
         <hr>

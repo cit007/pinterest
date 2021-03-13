@@ -6,7 +6,7 @@
         <h1>{{ target_project.title }}</h1>
         <h3>{{ target_project.writer.profile.nickname }}</h3>
         <img src="{{ target_project.image.url }}" alt="" class="project-detail__image">
-        <p>{{ target_project.desc }}</p>
+        <p>{{ target_project.desc | safe }}</p>
 
         {% if user.is_authenticated %}
             {% if subscription %}
