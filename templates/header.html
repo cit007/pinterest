@@ -10,7 +10,9 @@
             <li>
                 <a href="{% url 'projectapp:list' %}">Projects</a>
             </li>
-            <li>nav3</li>
+            <li>
+                <a href="{% url 'subscribeapp:list' %}">Subscriptions</a>
+            </li>
             {% if not user.is_authenticated %}
             <li><a href="{% url 'accountapp:login' %}?next={{ request.path }}">Login</a></li>
             <li><a href="{% url 'accountapp:create' %}">SignUp</a></li>

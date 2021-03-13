@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'snippets/related_list.html' with article_list=article_list %}
+  
+{% endblock %}
