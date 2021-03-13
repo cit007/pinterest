@@ -1,13 +1,15 @@
 <div class = "comment-detail">
-    <div class = "comment-title">
+    <div class = "title">
         <span>{{ comment.writer.profile.nickname }}</span>
-        <span>{{ comment.create_at }}</span>
+        <span>{{ comment.create_at | date:"Y/m/d h:iA" }}</span>
     </div>
     <div>
         {{ comment.content | safe }}
     </div>
 
     {% if comment.writer == user %}
-    <a href="{% url 'commentapp:delete' pk=comment.pk %}">Delete <i class="fas fa-trash-alt"></i></a>
+    <div class="comment-btn-group">
+        <a href="{% url 'commentapp:delete' pk=comment.pk %}" class="alert-btn">Delete <i class="fas fa-trash-alt"></i></a>
+    </div>
     {% endif %}
 </div>

@@ -42,19 +42,25 @@ a {
   margin: 1rem;
 }
 
+.default-btn,
 .submit-btn,
 .delete-btn,
-.alert-btn {
+.alert-btn,
+.edit-btn {
   border: none;
   border-radius: 10px;
   font-size: 1.25rem;
   margin-top: 1rem;
   color: white;
-  background-color: var(--line-color);
+  background-color: var(--default-color);
   /* width: 10rem; */
   padding: 8px;
   /* margin: 2rem calc(50% - 5rem) 2rem calc(50% - 5rem); */
   text-align: center;
+}
+
+.submit-btn {
+  background-color: var(--line-color);
 }
 
 .delete-btn,
@@ -62,9 +68,14 @@ a {
   background-color: var(--alert-color);
 }
 
+.edit-btn {
+  background-color: var(--edit-color);
+}
+
 .submit-btn:hover,
 .delete-btn:hover,
-.alert-btn:hover {
+.alert-btn:hover,
+.edit-btn:hover {
   transform: scale(1.1);
   opacity: 1;
 }

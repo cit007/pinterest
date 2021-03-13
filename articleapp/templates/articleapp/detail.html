@@ -9,8 +9,8 @@
         <p>{{ target_article.content | safe }}</p>
 
         {% if target_article.writer == user %}
-        <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="submit-btn"><p>Edit Article <i class="fas fa-edit"></i></p></a>
-        <a href="{% url 'articleapp:delete' pk=target_article.pk %}" class="alert-btn"><p>Delete Article <i class="fas fa-trash-alt"></i></p></a>
+        <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="edit-btn"><p>Edit Article <i class="fas fa-edit"></i></p></a>
+        <a href="{% url 'articleapp:delete' pk=target_article.pk %}" class="delete-btn"><p>Delete Article <i class="fas fa-trash-alt"></i></p></a>
         {% endif %}
 
         <hr>

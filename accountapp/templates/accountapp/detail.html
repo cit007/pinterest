@@ -11,19 +11,19 @@
                 <h6>{{ target_user.profile.message}}</h6>
 
                 {% if target_user == user %}
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">Edit Profile <i class="fas fa-edit"></i></a>
+                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}" class="edit-btn">Edit Profile <i class="fas fa-edit"></i></a>
                 {% endif %}
                 
             {% else %}
                 {% if target_user == user %}
-                <a href="{% url 'profileapp:create' %}">Create Profile <i class="fas fa-edit"></i></a>
+                <a href="{% url 'profileapp:create' %}" class="submit-btn">Create Profile <i class="fas fa-edit"></i></a>
                 {% endif %}
             {% endif %}
         </div>
 
         {% if target_user == user %}
-        <a href="{% url 'accountapp:update' pk=user.pk %}">Edit Password <i class="fas fa-edit"></i></a>
-        <a href="{% url 'accountapp:delete' pk=user.pk %}">SignOut <i class="fas fa-sign-out-alt"></i></a>
+        <a href="{% url 'accountapp:update' pk=user.pk %}" class="edit-btn">Edit Password <i class="fas fa-edit"></i></a>
+        <a href="{% url 'accountapp:delete' pk=user.pk %}" class="alert-btn">SignOut <i class="fas fa-sign-out-alt"></i></a>
 
         {% include 'snippets/related_list.html' with article_list=object_list %}
 
