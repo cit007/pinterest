@@ -8,6 +8,18 @@
         <img src="{{ target_project.image.url }}" alt="" class="project-detail__image">
         <p>{{ target_project.desc }}</p>
 
+        {% if user.is_authenticated %}
+            {% if subscription %}
+            <a href="{% url 'subscribeapp:subscribe' %}?project_pk={{ target_project.pk }}" class="alert-btn">
+                UnSubscribe
+            </a>
+            {% else %}
+            <a href="{% url 'subscribeapp:subscribe' %}?project_pk={{ target_project.pk }}" class="submit-btn">
+                Subscribe
+            </a>
+            {% endif %}
+        {% endif %}
+
         {% include 'snippets/related_list.html' with article_list=object_list %}
 
         <hr>

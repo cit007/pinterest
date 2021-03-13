@@ -43,7 +43,8 @@ a {
 }
 
 .submit-btn,
-.delete-btn {
+.delete-btn,
+.alert-btn {
   border: none;
   border-radius: 10px;
   font-size: 1.25rem;
@@ -56,12 +57,14 @@ a {
   text-align: center;
 }
 
-.delete-btn {
+.delete-btn,
+.alert-btn {
   background-color: var(--alert-color);
 }
 
 .submit-btn:hover,
-.delete-btn:hover {
+.delete-btn:hover,
+.alert-btn:hover {
   transform: scale(1.1);
   opacity: 1;
 }
