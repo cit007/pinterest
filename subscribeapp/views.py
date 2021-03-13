@@ -19,7 +19,8 @@ class SubscribeView(RedirectView):
         return reverse('projectapp:detail', kwargs={'pk': self.request.GET.get('project_pk')})
 
     def get(self, request, *args, **kwargs):
-        project = get_object_or_404(Project, pk=self.request.GET.get('project_pk'))
+        project = get_object_or_404(
+            Project, pk=self.request.GET.get('project_pk'))
         user = self.request.user
 
         subscription = Subscription.objects.filter(user=user, project=project)
@@ -31,7 +32,7 @@ class SubscribeView(RedirectView):
         return super(SubscribeView, self).get(request, *args, **kwargs)
 
 
-
+@method_decorator(login_required, 'get')
 class SubscriptionListView(ListView):
     model = Article
     context_object_name = 'article_list'
@@ -39,7 +40,8 @@ class SubscriptionListView(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        projects = Subscription.objects.filter(user=self.request.user).values_list('project')
+        projects = Subscription.objects.filter(
+            user=self.request.user).values_list('project')
         article_list = Article.objects.filter(project__in=projects)
         # print(f"projects:{projects} ---- article_list:{article_list}")
         return article_list
