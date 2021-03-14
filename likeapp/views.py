@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
@@ -21,11 +22,19 @@ class LikeArticleView(RedirectView):
         user = self.request.user
         article = get_object_or_404(Article, pk=kwargs['pk'])
 
-        if Like.objects.filter(user=user, article=article).exists():
+        like = Like.objects.filter(user=user, article=article)
+        if like.exists():
+            like.delete()
+            article.good -= 1
+            article.save()
+            messages.add_message(
+                self.request, messages.ERROR, "LIKEを取消しました。")
             return HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk': kwargs['pk']}))
         else:
             Like(user=user, article=article).save()
             article.good += 1
             article.save()
-        
+            messages.add_message(
+                self.request, messages.INFO, "LIKEをありがとう御座います。")
+
         return super(LikeArticleView, self).get(self.request, *args, **kwargs)
