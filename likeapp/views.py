@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
@@ -13,6 +14,24 @@ from articleapp.models import Article
 from likeapp.models import Like
 
 
+@transaction.atomic
+def db_transaction(self, user, article):
+    like = Like.objects.filter(user=user, article=article)
+    if like.exists():
+        like.delete()
+        article.good -= 1
+        article.save()
+
+        # return HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk': article.pk}))
+        return False
+    else:
+        Like(user=user, article=article).save()
+        article.good += 1
+        article.save()
+
+        return True
+
+
 @method_decorator(login_required, 'get')
 class LikeArticleView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
@@ -22,19 +41,16 @@ class LikeArticleView(RedirectView):
         user = self.request.user
         article = get_object_or_404(Article, pk=kwargs['pk'])
 
-        like = Like.objects.filter(user=user, article=article)
-        if like.exists():
-            like.delete()
-            article.good -= 1
-            article.save()
+        try:
+            result = db_transaction(self, user, article)
+            if(result == True):
+                messages.add_message(
+                    self.request, messages.INFO, "「LIKE」ありがとう御座います。")
+            else:
+                messages.add_message(
+                    self.request, messages.ERROR, "「LIKE」取消しました。")
+        except:
             messages.add_message(
-                self.request, messages.ERROR, "LIKEを取消しました。")
-            return HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk': kwargs['pk']}))
-        else:
-            Like(user=user, article=article).save()
-            article.good += 1
-            article.save()
-            messages.add_message(
-                self.request, messages.INFO, "LIKEをありがとう御座います。")
+                self.request, messages.ERROR, "「LIKE」更新できませんでした。")
 
         return super(LikeArticleView, self).get(self.request, *args, **kwargs)
