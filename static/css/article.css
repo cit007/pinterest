@@ -27,6 +27,16 @@
   align-items: center;
 }
 
+/* .article-detail .article-like {
+  margin: 32px 0px;
+  color: black;
+  font-size: 30px;
+}
+
+.article-detail .article-like:hover {
+  transform: scale(1.1);
+} */
+
 .article-create .title,
 .article-update .title,
 .article-delete .title {

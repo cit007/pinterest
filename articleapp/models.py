@@ -16,4 +16,6 @@ class Article(models.Model):
     image = models.ImageField(upload_to='article/', null=False)
     content = models.TextField(null=True)
 
+    good = models.IntegerField(default=0)
+
     created_at = models.DateField(auto_now_add=True, null=True)
