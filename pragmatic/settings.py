@@ -14,6 +14,7 @@ from pathlib import Path
 import environ
 import os
 
+from django.contrib import messages
 from django.urls import reverse_lazy
 
 env = environ.Env(
@@ -152,6 +153,11 @@ LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'dark',
+    messages.ERROR: 'danger',
+}
 
 # LOGGING
 LOGGING = {
