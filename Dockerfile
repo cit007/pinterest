@@ -6,13 +6,15 @@ RUN git clone https://github.com/cit007/pinterest.git
 
 WORKDIR /home/pinterest/
 
-RUN pip install gunicorn
-
 RUN pip install -r requirements.txt
+
+RUN pip install gunicorn
 
 RUN echo "SECRET_KEY=xxx" > .env
 
 RUN python manage.py migrate
+
+RUN python manage.py collectstatic
 
 EXPOSE 8000
 
