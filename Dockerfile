@@ -14,14 +14,10 @@ RUN pip install gunicorn
 
 RUN pip install mysqlclient
 
-RUN echo "SECRET_KEY=xxx" > .env
-
 # RUN python manage.py migrate
-
-RUN python manage.py collectstatic
 
 EXPOSE 8000
 
 # CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 # CMD ["gunicorn", "pragmatic.wsgi", "--bind", "0.0.0.0:8000"]
-CMD ["bash", "-c", "python manage.py migrate --settings=pragmatic.settings.prod && gunicorn pragmatic.wsgi --env DJANGO_SETTINGS_MODULE=pragmatic.settings.prod --bind 0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py collectstatic --noinput --settings=pragmatic.settings.prod && python manage.py migrate --settings=pragmatic.settings.prod && gunicorn pragmatic.wsgi --env DJANGO_SETTINGS_MODULE=pragmatic.settings.prod --bind 0.0.0.0:8000"]

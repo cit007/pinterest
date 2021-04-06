@@ -6,19 +6,25 @@ services:
       - nginx-django
     volumes:
       - dbData:/var/lib/mysql
+    secrets:
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
     environment:
-      MYSQL_ROOT_PASSWORD: test1234
-      MYSQL_DATABASE: test_db
-      MYSQL_USER: test
-      MYSQL_PASSWORD: test1234
+      MYSQL_DATABASE: pinterest_db
+      MYSQL_USER: test_db
+      MYSQL_PASSWORD_FILE: /run/secrets/MYSQL_PASSWORD
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/MYSQL_ROOT_PASSWORD
 
   django_container:
-    image: pinterest_gunicorn:3
+    image: pinterest_gunicorn:4
     networks:
       - nginx-django
     volumes:
       - static:/home/pinterest/staticfiles
       - media:/home/pinterest/mediafiles
+    secrets:
+      - MYSQL_PASSWORD
+      - SECRET_KEY
 
   nginx_container:
     image: nginx:1.19.5
@@ -29,7 +35,7 @@ services:
       - static:/data/static
       - media:/data/media
     ports:
-      - 80:80
+      - 8080:80
 
 networks:
   nginx-django:
@@ -38,3 +44,11 @@ volumes:
   static:
   media:
   dbData:
+
+secrets:
+  SECRET_KEY:
+    external: true
+  MYSQL_PASSWORD:
+    external: true
+  MYSQL_ROOT_PASSWORD:
+    external: true
